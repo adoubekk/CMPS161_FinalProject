@@ -1,29 +1,26 @@
-body {
-  font: 300 12px "Verdana";
-  height: 640px;
-  margin: 80px 160px 80px 160px;
-  position: relative;
-  width: 960px;
-}
-
-body > svg {
-  position: absolute;
-  top: -80px;
-  left: -160px;
-}
-
 svg {
    border-style: solid;
    border-color: #888888;
    border-width: 2px;
+   border-radius: 5px;
    background: linear-gradient(#eeeeee,#bbbbbb);
 }
 
 div.toolarea {
-   position: absolute;
+   position: relative;
    border-style: solid;
    border-color: #888888;
    border-width: 2px;
-   background: #cccccc;
-   padding: 10px 10px 10px 10px
+   border-radius: 5px;
+   background: #ffffff;
+   padding: 10px 10px 10px 10px;
+   text-align:center;
 }   
+
+div.column {
+   margin: auto;
+   position: relative;
+   display: block;
+   width: 40%;
+   text-align:center
+}
