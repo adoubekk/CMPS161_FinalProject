@@ -1,0 +1,76 @@
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+
+\usepackage{graphicx}
+
+\title{Visualizing Graduate Admissions Data}
+
+\author{Aaron Doubek-Kraft, adoubekk@ucsc.edu}
+
+\begin{document}
+	
+	\begin{frame}{Problem}
+		\begin{itemize}
+			\item Given the unusually large applicant pool to the UCSC Computer Science graduate program, determine if any correlation exists between:
+			\begin{itemize} \item an applicant's quantitative records (GPA, test scores, etc.) 
+							\item their potential to succeed in the program
+							\item their strength in a given research area
+			\end{itemize}
+			\item Create a tool to visualize general multivariate datasets
+		\end{itemize}	
+	\end{frame}
+	
+	\begin{frame}{Approach}
+		\begin{itemize}
+			\item Parallel Coordinate Plots: Sets of parallel axes connected by polylines that represent an individual record
+			\item Strengths
+			\begin{itemize}
+				\item Standard and generic approach to multivariate visualization
+				\item Easy to identify trends in the data
+				\item Straightforward implementation
+			\end{itemize}
+			\item Weakness
+			\begin{itemize}
+				\item Quickly becomes visually cluttered for large datasets
+			\end{itemize}
+			\item Overcoming Clutter
+			\begin{itemize}
+				\item Map polyline color to group membership
+				\item Highlight group or subset by hiding or graying out other lines
+				\item Highlight data that falls within a particular range on an axis (brushing)
+			\end{itemize}
+		\end{itemize}
+	
+	\end{frame}
+	
+	\begin{frame}{Implementation}
+		\begin{itemize}
+			\item Operations on dataset: Python scripts
+			\begin{itemize}
+				\item Normalize test scores
+				\item Strip rankings from research interests to improve grouping
+			\end{itemize}
+			\item Visualization: Web Application
+			\begin{itemize}
+				\item d3.js: Graphics
+				\item jQuery: DOM Manipulation
+				\item w3.css: Style Framework
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Results}
+		\begin{figure}[h]
+			\includegraphics[width=\linewidth]{results.png}
+			\caption{Visualizing the Iris dataset}
+			\label{fig:Result}
+		\end{figure}		
+	\end{frame}
+	
+	\begin{frame}{Issues}
+		
+	\end{frame}
+
+\end{document}
