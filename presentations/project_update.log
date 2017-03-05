@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.3)  4 MAR 2017 13:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.3)  4 MAR 2017 23:05
 entering extended mode
 **project_update.tex
 (project_update.tex
@@ -867,11 +867,11 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ] [3
 
 ]
-<results.png, id=101, 1065.22969pt x 543.53062pt>
+<results.png, id=101, 1145.02782pt x 560.8453pt>
 File: results.png Graphic file (type png)
  <use results.png>
 Package pdftex.def Info: results.png used on input line 70.
-(pdftex.def)             Requested size: 342.2953pt x 174.65489pt.
+(pdftex.def)             Requested size: 342.2953pt x 167.65584pt.
  [4
 
  <./results.png>] [5
@@ -905,7 +905,7 @@ Here is how much of TeX's memory you used:
 <D:/Programs/proTeXt_/fonts/type1/public/amsfonts/cm/cmss10.pfb><D:/Programs/
 proTeXt_/fonts/type1/public/amsfonts/cm/cmss12.pfb><D:/Programs/proTeXt_/fonts/
 type1/public/amsfonts/cm/cmss8.pfb>
-Output written on project_update.pdf (5 pages, 479778 bytes).
+Output written on project_update.pdf (5 pages, 469560 bytes).
 PDF statistics:
  169 PDF objects out of 1000 (max. 8388607)
  12 named destinations out of 1000 (max. 500000)
