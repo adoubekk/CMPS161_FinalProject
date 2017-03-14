@@ -2,5 +2,10 @@
 \BOOKMARK [1][-]{section.2}{Methods}{}% 2
 \BOOKMARK [1][-]{section.3}{Implementation}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{Processing Dataset}{section.3}% 4
-\BOOKMARK [1][-]{section.4}{Results}{}% 5
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Developing Visualization}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Color Mapping}{subsection.3.2}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Highlighting}{subsection.3.2}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Axis Selection}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Brushing}{subsection.3.2}% 9
+\BOOKMARK [1][-]{section.4}{Results}{}% 10
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 11
