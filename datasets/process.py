@@ -13,6 +13,22 @@ import sys
 import math
 import csv
 
+#given a string ranked with 1:, 2:, etc.
+#strip rankings
+def clean(string):
+    result = ""
+    if (":" not in string):
+        return string
+    else:
+        string = string.split("|")
+        for val in string:
+            if (":" in val):
+                val = val.split(":")
+                result = result + val[1] + "|"
+            else:
+                result = result + val + "|"
+    return result[:-1]
+
 #try to open file in commmand line agruments
 filename1 = sys.argv[1]
 filename2 = sys.argv[2]
@@ -47,6 +63,7 @@ for row in data2:
 admitted = set(admitted_list)
 ID_index = fields.index("ID")
 RI_index = fields.index("Research Interests")
+temp = ""
 
 for row in data1:
     #add field indicating if student was admitted
@@ -56,7 +73,7 @@ for row in data1:
         row.append("No")
         
     #strip rankings from research interests
-        
+    row[RI_index] = clean(row[RI_index])
         
 #Write to file
 out_filename = filename1.split('.')[0] #extract base name of input file
