@@ -70,9 +70,12 @@ UG_GPA_index = fields.index("UG GPA")
 UG_SCALE_index = fields.index("UG GPA SCALE")
 GRAD_GPA_index = fields.index("GRAD GPA") + 1
 GRAD_SCALE_index = fields.index("GRAD GPA SCALE") + 1
+TOEFL_index = fields.index("TOEFL") + 2
+IELTS_index = fields.index("IELTS") + 2
 
 fields.insert(UG_SCALE_index + 1,"UG GPA (Normalized)")
 fields.insert(GRAD_SCALE_index + 1,"GRAD GPA (Normalized)")
+fields.insert(IELTS_index + 1, "EFL Index")
 
 GPA = 0
 Scale = 1
@@ -122,6 +125,9 @@ for row in data1:
             row.insert(GRAD_SCALE_index + 1,"")
     else:
          row.insert(GRAD_SCALE_index + 1,"")
+         
+    #normalize English as a Foreign Language tests
+    row.insert(IELTS_index + 1, "")
          
 #Write to file
 out_filename = filename1.split('.')[0] #extract base name of input file
