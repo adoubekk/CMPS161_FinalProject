@@ -64,6 +64,8 @@ for row in data2:
 admitted = set(admitted_list)
 ID_index = fields.index("ID")
 RI_index = fields.index("Research Interests")
+GREQ_index = fields.index("GREQ")
+GREV_index = fields.index("GREV")
 UG_GPA_index = fields.index("UG GPA")
 UG_SCALE_index = fields.index("UG GPA SCALE")
 GRAD_GPA_index = fields.index("GRAD GPA") + 1
@@ -87,8 +89,18 @@ for row in data1:
     #strip rankings from research interests
     row[RI_index] = clean(row[RI_index])
     
-    #normalize GPAs
+    #remove out-of-bounds GRE scores
+    score = row[GREQ_index].split(" ")[0]
+    if (score not in exclusions):
+        if (float(score) > 170):
+            row[GREQ_index] = ""
+            
+    score = row[GREV_index].split(" ")[0]
+    if (score not in exclusions):
+        if (float(score) > 170):
+            row[GREV_index] = ""
     
+    #normalize GPAs    
     GPA = row[UG_GPA_index]
     Scale = row[UG_SCALE_index]
     if (GPA not in exclusions and Scale not in exclusions):
