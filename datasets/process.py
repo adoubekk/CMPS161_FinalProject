@@ -127,7 +127,7 @@ for row in data1:
          row.insert(GRAD_SCALE_index + 1,"")
          
     #normalize English as a Foreign Language tests
-    row.insert(IELTS_index + 1, "")
+    row.insert(IELTS_index + 1, "0")
          
 #Write to file
 out_filename = filename1.split('.')[0] #extract base name of input file

@@ -65,7 +65,7 @@
 		 GREQ & GRE - Quantitative Reasoning\\
 		 GREQ\% & Percentage for GREQ\\
 		 GREA & GRE - Analytical Writing\\
-		 GREA\% & - Percentage for GREA\\
+		 GREA\% & Percentage for GREA\\
 		 GRESubjName & GRE Subject Test Name \\ 
 		 GRESubjScore & Gre Subject Test Score\\
 		 GRESubj\% & Gre Subject Test Percentage\\
@@ -85,7 +85,7 @@
 	\subsection{Developing Visualization}
 		\par In this section, I will discuss the strategies implemented in this project to improve readability of parallel coordinate plots of large datasets. While the primary objective here was analysis of the graduate admissions data, the techniques used here, and in fact the interface itself, could be used to visualize any multivariate dataset stored as a csv file. In general, however, csv is a relatively loose standard\cite{csv}, so any truly generic application is nearly impossible.
 		\subsubsection{Color Mapping}
-			As the interface was designed to be a relatively generic approach to multivariate data, the program will parse potential relevant groups from the dataset itself and color-code them according to group membership. If the dataset contains multiple potential groupings, as the graduate admissions data does, the interface also allows the user to decide which grouping to use. This facilitates comparisons between subsets of the data, as well as identifications of correlations within a particular group
+			As the interface was designed to be a relatively generic approach to multivariate data, the program will parse potential relevant groups from the dataset itself and color-code them according to group membership. If the dataset contains multiple potential groupings, as the graduate admissions data does, the interface also allows the user to decide which grouping to use. This facilitates comparisons between subsets of the data, as well as identifications of correlations within a particular group.
 		\subsubsection{Highlighting}
 			If the user is interested only in a certain subset or subsets of the data, those may be selected, and all other subsets will be grayed out. This further emphasizes correlations (or the lack thereof) within this subset.
 		\subsubsection{Axis Selection}
@@ -93,7 +93,7 @@
 			\begin{figure}[h]
 				\includegraphics[width=\linewidth/2]{possum_bad.png}
 				\includegraphics[width=\linewidth/2]{possum_good.png}
-				\caption{Left: possum dataset\cite{datasets}, with axes on left side taking on discrete values. Right: same dataset, with discrete axes eliminated.}
+				\caption{Left: Possum dataset\cite{datasets}, with axes on left side taking on discrete values. Right: same dataset, with discrete axes eliminated using axis selection.}
 				\label{fig:Result}
 			\end{figure}
 		\subsubsection{Brushing}
