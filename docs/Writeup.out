@@ -1,7 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Methods}{}% 2
 \BOOKMARK [1][-]{section.3}{Implementation}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Processing Dataset}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Dataset: Description and Processing}{section.3}% 4
 \BOOKMARK [2][-]{subsection.3.2}{Developing Visualization}{section.3}% 5
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Color Mapping}{subsection.3.2}% 6
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Highlighting}{subsection.3.2}% 7
