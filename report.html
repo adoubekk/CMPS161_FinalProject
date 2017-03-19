@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <meta charset="utf-8">
+      <title>Visualizing Graduate Admissions Data</title>
+      <link type="text/css" rel="stylesheet" href="css/w3.css"/>
+      <style>
+         p {
+            text-indent:30px;
+         }
+      </style>
+   </head>
+
+   <body class ="w3-center">
+      <h1 class="w3-container w3-teal w3-bottombar w3-center"> Visualizing Graduate Admissions Data <br> </h1>
+      
+      <div class = "w3-row-padding">
+         <h3 class="w3-card w3-margin-left w3-center">
+            Aaron Doubek-Kraft <br>
+            adoubekk@ucsc.edu <br>
+            3/20/2017 <br>
+         </h3>
+      </div>
+      <div class="w3-row-padding">
+         <div class="w3-col s6">
+            <h2 class = "w3-teal w3-bottombar"> Description </h2>
+            <div class="w3-border w3-left-align">
+               <div class = "w3-margin">
+                  <p> Final project for CMPS 161: Introduction to Data Visualization, Winter 2017. </p>
+                     
+                  <p>  Abstract: The unusually large applicant pool to the Computer Science graduate program
+                     at UCSC in 2017 introduced a problem of scale to the admissions process.
+                     By applying multivariate visualization techniques to applicants' admission data,
+                     I aim to identify correlations in the data that could be applicable to the selection
+                     process in the future. I employ a common information visualization technique known
+                     as the parallel coordinate plot. A brief overview of this technique is provided,
+                     as well as descriptions of several common methods to improve its readability and
+                     usefulness that are implemented in this project.
+                  </p>
+                  
+                  <p>
+                  This project was implemented with <a href = "https://d3js.org/">d3.js</a>, using modules 
+                  d3-axis, d3-scale, d3-brush, and d3-shape.
+                  </p>
+                  
+                     Implementation: 
+                     <a href = "index.html">index.html</a> <br>
+                     Technical Documentation: 
+                     <a href = "docs/Writeup.pdf">Writeup.pdf</a> <br>
+                     User Documentation: 
+                     <a href = "README">README</a> <br>
+                     Source Code:
+                     <a href = "lib/main.js">main.js</a>,
+                     <a href = "datasets/process.py">process.py</a> <br>
+                     Dataset:
+                     <a href = "datasets/cleaned_new.csv">cleaned_new.csv</a> <br>
+               </div>
+            </div>
+         </div>
+         <div class="w3-col s6">
+            <h2 class = "w3-teal w3-bottombar"> User Guide </h2>
+            <div class="w3-border w3-left-align">
+               <div class="w3-margin">
+                  <p>   To use the Parallel Coordinate Plot generator, open a .csv file using the file input, 
+                  and click the load button. The program will parse the input, and display a parallel coordinate
+                  plot of the data. By default, only the first 5 fields will be mapped to axes and displayed in 
+                  the output, and the color mapping is "None". </p>
+
+                  <p>Expand any of the control panels on the left by clicking on them. 
+                  In the "Display Axis" panel, check the boxes to choose which axes to display in the plot. 
+                  In the "Groups" panel, choose which grouping to use to map color to the data.
+                  In the "Legend" panel, see which colors are mapped to which sets, and choose which sets to highlight. </p>
+
+                  <p> The plot currently supports interaction only in the form of brushing. Click and drag on an axis
+                  to select only records that fall within that range on the axis. </p>
+
+                  <p> Sample datasets are included in the "datasets" folder. </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   
+   <div class="w3-row-padding">  
+      <h2 class="w3-teal w3-bottombar"> Images </h2>
+      <div class="w3-col s6">
+      <div class = "w3-card-4">
+         <img src = "docs/iris.png" alt = "Iris" class = "w3-image">
+         <div class="w3-container w3-center">
+            <p> Visualizing Edgar Iverson's Iris Dataset </p>
+         </div>
+      </div>
+   </div>
+
+   </body>
+</html>

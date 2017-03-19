@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.3)  18 MAR 2017 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.3)  19 MAR 2017 00:26
 entering extended mode
 **Writeup.tex
 (Writeup.tex
@@ -369,81 +369,90 @@ been already used, duplicate ignored
                    \relax 
 l.43 
       [1 <./iris.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 49--84
+Underfull \hbox (badness 10000) in paragraph at lines 50--85
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
-[3] <highlight.png, id=84, 920.68968pt x 465.99094pt>
+<highlight.png, id=86, 920.68968pt x 465.99094pt>
 File: highlight.png Graphic file (type png)
  <use highlight.png>
-Package pdftex.def Info: highlight.png used on input line 103.
+Package pdftex.def Info: highlight.png used on input line 104.
 (pdftex.def)             Requested size: 172.5pt x 87.30908pt.
 
-<brush.png, id=85, 922.19531pt x 469.00218pt>
+<brush.png, id=87, 922.19531pt x 469.00218pt>
 File: brush.png Graphic file (type png)
  <use brush.png>
-Package pdftex.def Info: brush.png used on input line 104.
+Package pdftex.def Info: brush.png used on input line 105.
 (pdftex.def)             Requested size: 172.5pt x 87.72299pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 103--105
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 104--106
 [][] [] 
  []
 
-[4 <./highlight.png> <./brush.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
 <possum_bad.png, id=100, 925.20656pt x 472.01344pt>
 File: possum_bad.png Graphic file (type png)
  <use possum_bad.png>
-Package pdftex.def Info: possum_bad.png used on input line 135.
+Package pdftex.def Info: possum_bad.png used on input line 136.
 (pdftex.def)             Requested size: 172.5pt x 87.99814pt.
 
 <possum_good.png, id=101, 921.4425pt x 468.24937pt>
 File: possum_good.png Graphic file (type png)
  <use possum_good.png>
-Package pdftex.def Info: possum_good.png used on input line 136.
+Package pdftex.def Info: possum_good.png used on input line 137.
 (pdftex.def)             Requested size: 172.5pt x 87.65364pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 135--137
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 136--138
 [][] [] 
  []
 
-[5 <./possum_bad.png> <./possum_good.png>]
-Underfull \hbox (badness 3884) in paragraph at lines 154--155
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./highlight.png> <./brush.png>]
+Underfull \hbox (badness 3884) in paragraph at lines 155--156
 []\OT1/cmr/m/n/10 GRE Scores [In-ter-net]. Avail-able from []$\OT1/cmtt/m/n/10 
 https : / / www . ets . org / gre /$
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
-[6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+[6 <./possum_bad.png> <./possum_good.png>]
+Missing character: There is no Â in font cmr10!
+Missing character: There is no ® in font cmr10!
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 169.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 169.
  (Writeup.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 169.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 169.
 Package rerunfilecheck Info: File `Writeup.out' has not changed.
 (rerunfilecheck)             Checksum: 335E412CFA810135FCC17258CF89C055;753.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 169.
  ) 
 Here is how much of TeX's memory you used:
- 7543 strings out of 493698
- 108922 string characters out of 3147260
- 225511 words of memory out of 3000000
- 10784 multiletter control sequences out of 15000+200000
+ 7548 strings out of 493698
+ 108962 string characters out of 3147260
+ 225565 words of memory out of 3000000
+ 10786 multiletter control sequences out of 15000+200000
  10144 words of font info for 37 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 33i,15n,30p,1098b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,15n,30p,1299b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Programs/proTeXt_/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Programs/
 proTeXt_/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Programs/proTeXt_/fonts/
 type1/public/amsfonts/cm/cmbx9.pfb><D:/Programs/proTeXt_/fonts/type1/public/ams
@@ -453,9 +462,9 @@ proTeXt_/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Programs/proTeXt_/fonts/ty
 pe1/public/amsfonts/cm/cmr9.pfb><D:/Programs/proTeXt_/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb><D:/Programs/proTeXt_/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b>
-Output written on Writeup.pdf (7 pages, 1864403 bytes).
+Output written on Writeup.pdf (8 pages, 1867232 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

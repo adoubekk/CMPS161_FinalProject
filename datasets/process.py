@@ -75,11 +75,17 @@ IELTS_index = fields.index("IELTS") + 2
 
 fields.insert(UG_SCALE_index + 1,"UG GPA (Normalized)")
 fields.insert(GRAD_SCALE_index + 1,"GRAD GPA (Normalized)")
-fields.insert(IELTS_index + 1, "EFL Index")
+fields.insert(IELTS_index + 1, "EFL (Normalized)")
 
 GPA = 0
 Scale = 1
-Result = 0
+IELTS_score = 0
+IELTS_scale = 9
+TOEFL_score = 0
+TOEFL_scale = 120
+score = 0
+EFL_score = -1
+result = 0
 exclusions = set({"","Other","Don't Know","None"})
 
 for row in data1:
@@ -127,8 +133,18 @@ for row in data1:
          row.insert(GRAD_SCALE_index + 1,"")
          
     #normalize English as a Foreign Language tests
-    row.insert(IELTS_index + 1, "0")
-         
+    IELTS_score = row[IELTS_index].split(" ")[0]
+    if (IELTS_score not in exclusions):
+        EFL_score = float(IELTS_score)/IELTS_scale
+    TOEFL_score = row[TOEFL_index].split(" ")[0]
+    if (TOEFL_score not in exclusions):
+        EFL_score = float(TOEFL_score)/TOEFL_scale
+    if (EFL_score >= 0):
+        row.insert(IELTS_index + 1, EFL_score)
+    else:
+        row.insert(IELTS_index + 1, "")
+    EFL_score = -1
+    
 #Write to file
 out_filename = filename1.split('.')[0] #extract base name of input file
 out_file = open(out_filename+"_new.csv",'w',newline='')

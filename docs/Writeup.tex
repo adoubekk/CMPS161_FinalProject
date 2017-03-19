@@ -42,6 +42,7 @@
 	\par As an example, I present a standard test case for multivariate visualization: the iris dataset.\cite{datasets} Even in the absence of any specific knowledge about irises, some trends are immediately apparent. First, petal length and petal width are clustered for a given species, and they appear to be directly correlated: irises either have large petals or small petals. Similarly, sepal length and sepal width are also clustered, though not as strongly as petal size, and they appear to be inversely correlated (in case the reader is curious, the sepals are the green parts outside the flower that protect the petals, a fact I had to look up). Using the high dimensionality, we can compare axes across the chart, and we can see that sepal length is also correlated to petal width. Now, the strength of this approach becomes clear: it would have taken four or five lower-dimensional charts such as scatterplots to reach the same conclusions that are presented here in one condensed figure. I leave analyzing the significance of these trends to the botanists.
 	
 	\par The parallel coordinate plot, in its most basic form, also has the advantage of simplicity: straight lines connecting parallel axes are not difficult to implement, especially given the powerful scaling and rendering functionality of the d3.js library\cite{d3} used in this project. The challenge is in scaling the visualization up to larger datasets. The iris dataset consists of only 150 records, while the graduate admissions data has almost 1100, so approximately seven times the number of lines will be drawn on the plot. Without some additional adjustments, the plot will be too visually cluttered to be of any use. One simple technique to improve readability is to map the color of the lines to their group membership, as color is mapped to species in the iris example. I will discuss additional techniques in the Implementation section.
+	
 \section{Implementation}
 	\subsection{Dataset: Description and Processing}
 		The dataset consists of 1097 records, each representing an applicant to one of the UCSC computer science graduate programs. The fields from the provided dataset are described as follows:
@@ -82,15 +83,15 @@
 		 Admitted & Yes or No\\
 		\end{tabular} \\
 		
-		\par Since the applicants come from all around the world (in fact, the vast majority of applicants were foreign), one obstacle to drawing objective quantitative comparisons between groups of students was the fact that not all students have taken the same tests, and GPA is scaled differently in different countries. Normalizing the GPAs was relatively straightforward, since the dataset includes both the student's GPA and the GPA scale used, so the scores were simply normalized to 1, or in other words, the fraction of the appropriate total possible GPA. Additionally, a small number of the reported GRE scores were far higher the actual maximum score on the exam\cite{GRE}, so these were simply thrown out. Finally, there are two different English as a Foreign Language exams, the TOEFL and the IELTS. These two were merged into a single EFL Index. \\
+		\par Since the applicants come from all around the world (in fact, the vast majority of applicants were foreign), one obstacle to drawing objective quantitative comparisons between groups of students was the fact that not all students have taken the same tests, and GPA is scaled differently in different countries. Normalizing the GPAs was relatively straightforward, since the dataset includes both the student's GPA and the GPA scale used, so the scores were simply normalized to 1, or in other words, the fraction of the appropriate total possible GPA. Additionally, a small number of the reported GRE scores were far higher the actual maximum score on the exam\cite{GRE}, so these were simply thrown out. Finally, there are two different English as a Foreign Language exams, the TOEFL\cite{TOEFL} and the IELTS . These two were merged into a single EFL Index, again by normalizing to the maximum score on each exam. However, these two exams are score quite differently: TOEFL reports a score in the range 0-120, while IELTS assigns a "band" from 0-9 based on proficiency. A more representative comparison might be to fit each set of scores to a distribution, but there were relatively few IETLS scores, so this approach may also have introduced some bias. \\
 		
 		\par The fields I added to the dataset are defined as follows: \\
 		
 		\begin{tabular}{c|c}
 		Field & Description \\ \hline \\
-		UG GPA Index & $\frac {\text{UG GPA}}{\text{UG GPA SCALE}}$\\ \\
-		GRAD GPA Index &  $\frac{\text{GRAD GPA}}{\text{GRAD GPA SCALE}}$\\ \\
-		EFL Index & $\frac{\text{Score}}{\text{Max Score}}$, for TOEFL and IELTS\\		
+		UG GPA (Normalized) & $\frac {\text{UG GPA}}{\text{UG GPA SCALE}}$\\ \\
+		GRAD GPA (Normalized) &  $\frac{\text{GRAD GPA}}{\text{GRAD GPA SCALE}}$\\ \\
+		EFL (Normalized) & $\frac{\text{Score}}{\text{Max Score}}$, for TOEFL and IELTS\\		
 		\end{tabular}
 		
 	\subsection{Developing Visualization}
@@ -138,7 +139,7 @@
 			\label{fig:Axis}
 		\end{figure}
 	\subsection{Technical}
-		This project uses d3.js to handle the rendering of the visualizations, jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks.
+		This project uses d3.js to handle the rendering of the visualizations (modules: d3-axis,d3-scale, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record object also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
 \section{Results}
 
 \section{Discussion and Conclusion}
@@ -152,14 +153,16 @@
 		d3.js: Data Driven Documents. Available from \url{https://d3js.org/}
 	\bibitem{GRE}
 		GRE Scores [Internet]. Available from \url{https://www.ets.org/gre/revised_general/scores/?WT.ac=grehome_grescores_150213}
+	\bibitem{IELTS}
+		How IELTS is scored[Internet] https://www.ielts.org/about-the-test/how-ielts-is-scored
 	\bibitem{kosara}
 		Kosara, Robert. Parallel Coordinates [Internet]. Eagereyes; 2010. Available from \url{https://eagereyes.org/techniques/parallel-coordinates}
 	\bibitem{datasets}
 		R Datasets [Internet]. Available from: \url{https://vincentarelbundock.github.io/Rdatasets/datasets.html}
 	\bibitem{telea}
 		Telea, Alexandru C. Data Visualization Principles and Practice. 2nd Edition. Boca Raton(FL): CRC Press; 2015.
-
-
+	\bibitem{TOEFL}
+		TOEFL iBT® Test Scores [Internet]. \url{https://www.ets.org/toefl/ibt/scores}
 \end{thebibliography}
 
 
