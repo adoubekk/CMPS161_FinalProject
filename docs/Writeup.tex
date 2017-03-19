@@ -83,7 +83,7 @@
 		 Admitted & Yes or No\\
 		\end{tabular} \\
 		
-		\par Since the applicants come from all around the world (in fact, the vast majority of applicants were foreign), one obstacle to drawing objective quantitative comparisons between groups of students was the fact that not all students have taken the same tests, and GPA is scaled differently in different countries. Normalizing the GPAs was relatively straightforward, since the dataset includes both the student's GPA and the GPA scale used, so the scores were simply normalized to 1, or in other words, the fraction of the appropriate total possible GPA. Additionally, a small number of the reported GRE scores were far higher the actual maximum score on the exam\cite{GRE}, so these were simply thrown out. Finally, there are two different English as a Foreign Language exams, the TOEFL\cite{TOEFL} and the IELTS . These two were merged into a single EFL Index, again by normalizing to the maximum score on each exam. However, these two exams are score quite differently: TOEFL reports a score in the range 0-120, while IELTS assigns a "band" from 0-9 based on proficiency. A more representative comparison might be to fit each set of scores to a distribution, but there were relatively few IETLS scores, so this approach may also have introduced some bias. \\
+		\par Since the applicants come from all around the world (in fact, the vast majority of applicants were foreign), one obstacle to drawing objective quantitative comparisons between groups of students was the fact that not all students have taken the same tests, and GPA is scaled differently in different countries. Normalizing the GPAs was relatively straightforward, since the dataset includes both the student's GPA and the GPA scale used, so the scores were simply normalized to 1, or in other words, the fraction of the appropriate total possible GPA. Additionally, a small number of the reported GRE scores were far higher the actual maximum score on the exam\cite{GRE}, so these were simply thrown out. Finally, there are two different English as a Foreign Language exams, the TOEFL\cite{TOEFL} and the IELTS\cite{IELTS}. These two were merged into a single EFL Index, again by normalizing to the maximum score on each exam. However, these two exams are score quite differently: TOEFL reports a score in the range 0-120, while IELTS assigns a "band" from 0-9 based on proficiency. A more representative comparison might be to fit each set of scores to a distribution, but there were relatively few IELTS scores, so this approach may also have introduced some bias as well. \\
 		
 		\par The fields I added to the dataset are defined as follows: \\
 		
@@ -139,10 +139,10 @@
 			\label{fig:Axis}
 		\end{figure}
 	\subsection{Technical}
-		This project uses d3.js to handle the rendering of the visualizations (modules: d3-axis,d3-scale, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record object also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
+		This project uses d3.js 4.7.3 to handle the rendering of the visualizations (modules: d3-axis, d3-scale, d3-selection, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record objects also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
 \section{Results}
 
-\section{Discussion and Conclusion}
+\section{Conclusion}
 
 \begin{thebibliography}{11}
 	\bibitem{bostock}

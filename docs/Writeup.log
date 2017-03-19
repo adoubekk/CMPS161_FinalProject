@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.3)  19 MAR 2017 00:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.3)  19 MAR 2017 00:51
 entering extended mode
 **Writeup.tex
 (Writeup.tex
@@ -383,13 +383,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
-<highlight.png, id=86, 920.68968pt x 465.99094pt>
+<highlight.png, id=88, 920.68968pt x 465.99094pt>
 File: highlight.png Graphic file (type png)
  <use highlight.png>
 Package pdftex.def Info: highlight.png used on input line 104.
 (pdftex.def)             Requested size: 172.5pt x 87.30908pt.
 
-<brush.png, id=87, 922.19531pt x 469.00218pt>
+<brush.png, id=89, 922.19531pt x 469.00218pt>
 File: brush.png Graphic file (type png)
  <use brush.png>
 Package pdftex.def Info: brush.png used on input line 105.
@@ -407,13 +407,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
-<possum_bad.png, id=100, 925.20656pt x 472.01344pt>
+<possum_bad.png, id=102, 925.20656pt x 472.01344pt>
 File: possum_bad.png Graphic file (type png)
  <use possum_bad.png>
 Package pdftex.def Info: possum_bad.png used on input line 136.
 (pdftex.def)             Requested size: 172.5pt x 87.99814pt.
 
-<possum_good.png, id=101, 921.4425pt x 468.24937pt>
+<possum_good.png, id=103, 921.4425pt x 468.24937pt>
 File: possum_good.png Graphic file (type png)
  <use possum_good.png>
 Package pdftex.def Info: possum_good.png used on input line 137.
@@ -442,7 +442,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 169.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 169.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 169.
 Package rerunfilecheck Info: File `Writeup.out' has not changed.
-(rerunfilecheck)             Checksum: 335E412CFA810135FCC17258CF89C055;753.
+(rerunfilecheck)             Checksum: 7796B66DDFF41B0B4F2838F67AC42E83;738.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 169.
  ) 
 Here is how much of TeX's memory you used:
@@ -452,7 +452,7 @@ Here is how much of TeX's memory you used:
  10786 multiletter control sequences out of 15000+200000
  10144 words of font info for 37 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 33i,15n,30p,1299b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,15n,30p,1318b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/Programs/proTeXt_/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Programs/
 proTeXt_/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Programs/proTeXt_/fonts/
 type1/public/amsfonts/cm/cmbx9.pfb><D:/Programs/proTeXt_/fonts/type1/public/ams
@@ -462,9 +462,9 @@ proTeXt_/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Programs/proTeXt_/fonts/ty
 pe1/public/amsfonts/cm/cmr9.pfb><D:/Programs/proTeXt_/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb><D:/Programs/proTeXt_/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b>
-Output written on Writeup.pdf (8 pages, 1867232 bytes).
+Output written on Writeup.pdf (8 pages, 1867390 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
+ 182 PDF objects out of 1000 (max. 8388607)
  34 named destinations out of 1000 (max. 500000)
  122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
