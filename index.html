@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <meta charset="utf-8">
+      <title>CMPS 161 Final Project</title>
+          <link type="text/css" rel="stylesheet" href="css/style.css"/>
+          <link type="text/css" rel="stylesheet" href="css/w3.css"/>
+   </head>
+   
+   <div class="w3-row-padding w3-margin-bottom w3-margin-top">
+      <div class="w3-col s10">
+         <div class="w3-container w3-light-gray w3-round-large">
+            <h1 class = "w3-bottombar w3-leftbar w3-border-teal w3-round">  
+               <strong class="w3-margin-left">Parallel Coordinate Plot Generator </strong>
+            </h1>
+         </div>
+      </div>
+   </div>
+
+   <body onload = "main()">     
+      <script src = "lib/jquery-3.1.1.js"></script>
+      <script src = "lib/d3/d3.js"></script>
+      <script src = "lib/Record.js"></script>
+      <script src = "lib/main.js"></script>
+      
+      <div class = "w3-row-padding w3-margin">
+         <div class = "w3-col s2 w3-padding-4 w3-leftbar w3-border-teal w3-round">
+            <h2 class = "w3-teal w3-center w3-round" id = "displayAxes"> Display Axes </h2>
+            <form id = "Selectors" class="w3-container w3-light-gray w3-padding-4 w3-round" hidden> 
+               <p> No axes to display. </p>
+            </form>
+            <h2 class = "w3-teal w3-center w3-round" id = "Groups"> Groups</h2>
+            <form id = "SetSelectors" class="w3-container w3-light-gray w3-padding-4 w3-round" hidden> 
+               <p> No groups to display. </p>
+            </form>
+             <h2 class = "w3-teal w3-center w3-round" id = "Legend"> Legend</h2>
+            <form id = "LegendSelectors" class="w3-container w3-light-gray w3-padding-4" hidden> 
+               <p> No legend to display. </p>
+            </form>
+         </div>
+         <div class = "w3-col s8">
+            <div class = "w3-container w3-padding-8 w3-round-large"> 
+               <svg id = "svg" width = 1200 height = 600> </svg>
+            <div>
+         </div>
+      </div>
+      
+      <div class = "w3-row-padding w3-margin">
+         <div class = "w3-col s6 w3-center w3-padding-4 w3-leftbar w3-border-teal w3-round">
+            <div class ="w3-container w3-light-gray w3-round">
+               <input type="file" id="FileInput" class = "w3-button w3-left w3-margin w3-round-large">
+               <button id="Load" class = "w3-button w3-left w3-margin w3-grey w3-round-large w3-large w3-hover-teal" >Load</button>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
