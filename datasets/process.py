@@ -73,9 +73,9 @@ GRAD_SCALE_index = fields.index("GRAD GPA SCALE") + 1
 TOEFL_index = fields.index("TOEFL") + 2
 IELTS_index = fields.index("IELTS") + 2
 
-fields.insert(UG_SCALE_index + 1,"UG GPA (Normalized)")
-fields.insert(GRAD_SCALE_index + 1,"GRAD GPA (Normalized)")
-fields.insert(IELTS_index + 1, "EFL (Normalized)")
+fields.insert(UG_SCALE_index + 1,"UG GPA (N)")
+fields.insert(GRAD_SCALE_index + 1,"GRAD GPA (N)")
+fields.insert(IELTS_index + 1, "EFL (N)")
 
 GPA = 0
 Scale = 1

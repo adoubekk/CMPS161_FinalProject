@@ -141,8 +141,24 @@
 	\subsection{Technical}
 		This project uses d3.js 4.7.3 to handle the rendering of the visualizations (modules: d3-axis, d3-scale, d3-selection, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record objects also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
 \section{Results}
+	In my original implementation, the lines that were not selected were simply grayed out. This made for a nice visual effect on smaller datasets, but on the graduate admissions dataset, the plot was simply too densely populated, and even the greyed out lines became a visual distraction and hindrance. For the graduate admissions data, this effect was disabled.
 
+	\begin{figure}[h]
+		\includegraphics[width=\linewidth]{grads_only.png}
+		\caption{Graduate admissions dataset, brushed along the GRAD GPA axis (i.e. showing only those students who had previously attended graduate school). Color mapped to CA residency: Blue = Non-resident, Orange = Resident}
+		\label{fig:Grad}
+	\end{figure}
+	
+	Interestingly, in this Figure 4, it appears that students who had previously attended graduate school had relatively low GRE - Verbal Reasoning and Analytical Writing scores. Applying the appropriate color map to this plot clarified the situation, however. The vast majority of these students (blue) are non-California residents (in fact, most are foreign, but that mapping contains country of origin and is much more difficult to parse), and it is not a huge surprise that foreign students did not perform as well on an English language verbal proficiency test than did native speakers.
+	
+	
+\section{Related Work}
+	Parallel Sets, Radviz (time permitting)
+	
 \section{Conclusion}
+	There is a great deal of potential for improvement of this interface. In order to be a useful generic tool, many more of the visual attributes of the graph could be customizable, including the colors of the lines, whether unselected lines are grayed out or hidden, how and where the labels are placed, etc. In addition, there are several features I planned to implement but couldn't fit in before the deadline. First, I planned to allow switching from the quantitative "data" category to the qualitative "sets" category, as some discrete variables (such as store number, number of letters received, etc.) could be more useful as groupings than as plotted data.
+
+\vfill
 
 \begin{thebibliography}{11}
 	\bibitem{bostock}
