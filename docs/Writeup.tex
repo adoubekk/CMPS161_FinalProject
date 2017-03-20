@@ -43,7 +43,7 @@
 	
 \section{Implementation}
 	\subsection{Technical}
-	This project uses d3.js 4.7.3 to handle the rendering of the visualizations (modules: d3-axis, d3-scale, d3-selection, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record objects also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
+	This project uses d3.js 4.7.3 to handle the rendering of the visualizations (modules: d3-axis, d3-scale, d3-selection, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative data (defined as "data"). These record objects also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
 
 	\subsection{Developing Visualization}
 		\par In this section, I will discuss the strategies implemented in this project to improve readability of parallel coordinate plots of large datasets. While the primary objective here was analysis of the graduate admissions data, the techniques used here, and in fact the interface itself, could be used to visualize any multivariate dataset stored as a csv file. In general, however, csv is a relatively loose standard\cite{csv}, so any truly generic application is nearly impossible.
@@ -132,7 +132,7 @@
 	Once I began working with the graduate admissions dataset, it become clear that the set was simply too dense to be interpreted as a whole. In my original implementation, the lines that were not selected were simply grayed out. While this made for a nice visual effect on smaller datasets, on the graduate admissions dataset, the plot was simply too densely populated, and even the grayed out lines became a visual distraction and hindrance. For the graduate admissions data, this effect transparency of these lines was further increased, almost to the point of removal. In addition, all applicants that had been tagged with "Fail First Filter" were thrown out, which reduced the problem size by roughly half. All visualizations in this section were generated with this reduced dataset.
 	
 	\subsection {Admitted Students}
-		As might be expected, the students who gained entrance overwhelmingly scored above average on each of the GRE sections (average being 0 on each of the GRE (N) scales). While many of those who were not admitted also scored above average, the admitted group mostly excludes those who scored below average. This visualization also entirely omits those who met the "Fail First Filter" criteria, which often excluded students with very low GRE scores.
+		As might be expected, the students who gained entrance overwhelmingly scored above average on each of the GRE sections (average being 0 on each of the GRE* (N) scales). While many of those who were not admitted also scored above average, the admitted group mostly excludes those who scored below average. This visualization also entirely omits those who met the "Fail First Filter" criteria, which often excluded students with very low GRE scores.
 	
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{admitted.png}
@@ -141,7 +141,7 @@
 		\end{figure}
 		
 	\subsection {Research Interests}
-		I attempted to identify correlations between particular research interests and improved performance on specific areas of the GRE. For example, I hypothesized that interest in Natural Language Processing and Text Analytics might correspond to above average scores on the Verbal Reasoning and Analytical Writing portions of the exam, whereas interest in Data Analytics or Machine Learning might correspond to above average performance on the Quantitative Reasoning section. However, I discovered that there were no such trends to be found. As this example plot shows, students interest in Software Engineering, Data Analytics, Natural Language Processing, and Computer Games and Digital Media showed no significant difference in performance on any of the 3 exams, shown in Figure 5.
+		I attempted to identify correlations between particular research interests and improved performance on specific areas of the GRE. For example, I hypothesized that interest in Natural Language Processing and Text Analytics might correspond to above average scores on the Verbal Reasoning and Analytical Writing portions of the exam, whereas interest in Data Analytics or Machine Learning might correspond to above average performance on the Quantitative Reasoning section. However, I discovered that there were no such trends to be found. As the example plot in figure 5 shows, students interest in Software Engineering, Data Analytics, Natural Language Processing, and Computer Games and Digital Media showed no significant difference in performance on any of the 3 exams. The results were similar for all grouping by research interest that I tried.
 		\begin{figure}[h!]
 			\includegraphics[width=\linewidth]{RI.png}
 			\caption{Grouping based on research interest. Blue: Data Analytics; Pink: Software Engineering; Purple: Natural Language Processing; Orange: Computer Games}
@@ -151,8 +151,7 @@
 			\label{fig:MS_PHD}
 		\end{figure}
 	\subsection {MS vs. PHD}
-		I expected to find no major difference between Master's and PHD applicants, but I was surprised to find that MS applicants, on average, performed better on the GREQ and GREA than their PHD counterparts, as Figure 6 shows.
-
+		I expected to find no major difference between Master's and PHD applicants, but I was surprised to find that MS applicants, on average, performed better on the GREQ and GREA than their PHD counterparts, as figure 6 shows.
 		
 	\subsection{Previous Grad School Attendees}
 		This plot demonstrates an alternative use of the brushing feature. Brushing only the graduate GPA axis effectively selects those students who have previously attended graduate school. These students are also somewhat below average for GREQ and GREA, which while surprising taken on its own, actually follows logically from the results of the MS vs. PHD section, since the majority of those students with previous graduate education are most likely applying to the PHD program.
@@ -164,8 +163,9 @@
 	\pagebreak
 \section{Related Work}
 	\subsection{Parallel Sets}
-	
+	A variation of parallel coordinates emphasizing aggregate group behavior. Implemented as a desktop Java application by Kosara and Ziemkiewicz.
 	\subsection{RadViz}
+	A radial coordiante visualization, essentially amounting to star plots superimposed on top of one another. Well suited to identifying cluster behavior. \cite{rad}
 	
 \section{Conclusion}
 	There is a great deal of potential for improvement of this interface. In order to be a useful generic tool, many more of the visual attributes of the graph could be customizable, including the colors corresponding to particular groups, whether unselected lines are grayed out or hidden, how and where the labels are placed, etc. In addition, there are several features I planned to implement but couldn't fit in before the deadline. First, I planned to allow switching from the quantitative "data" category to the qualitative "sets" category, as some discrete variables (such as store number, number of letters received, etc.) could be more useful as groupings than as plotted data. Another common feature of this type of vis involves allowing the axes to be reordered, which can in some cases make correlations more apparent. Finally, one useful feature for dealing with large datasets would have been to be able to apply multiple filters based on grouping, so the problem size could be further reduced to correlations of groups within groups.
@@ -179,12 +179,16 @@
 		Comma Separated Values (CSV) Standard File Format [Internet]. Edoceo. Available from \url{http://edoceo.com/utilitas/csv-file-format}
 	\bibitem{d3}
 		d3.js: Data Driven Documents. Available from \url{https://d3js.org/}
+	\bibitem{rad}
+		Fayyad, Usama; Grinstein, Georges; Wierese, Andreas. Information Visualization in Data Mining and Knowledge Discovery. London: Academic Press; 2002 [cited 2017 March 19]. Available from \url{https://books.google.com/books?id=rYFvnyPRwkgC&lpg=PR5&dq=multivariate%20visualization%20information&lr&pg=PR4#v=onepage&q&f=false}
 	\bibitem{GRE}
 		GRE Scores [Internet]. Available from \url{https://www.ets.org/gre/revised_general/scores/?WT.ac=grehome_grescores_150213}
 	\bibitem{IELTS}
 		How IELTS is scored[Internet] https://www.ielts.org/about-the-test/how-ielts-is-scored
 	\bibitem{kosara}
 		Kosara, Robert. Parallel Coordinates [Internet]. Eagereyes; 2010. Available from \url{https://eagereyes.org/techniques/parallel-coordinates}
+	\bibitem{p_sets}
+		Kosara, Robert; Ziemkiewicz, Caroline. Parallel Sets [Internet]. Eagereyes; Available from https://eagereyes.org/parallel-sets
 	\bibitem{datasets}
 		R Datasets [Internet]. Available from: \url{https://vincentarelbundock.github.io/Rdatasets/datasets.html}
 	\bibitem{telea}
