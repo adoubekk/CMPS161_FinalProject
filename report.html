@@ -52,8 +52,11 @@
                      Source Code:
                      <a href = "lib/main.js">main.js</a>,
                      <a href = "datasets/process.py">process.py</a> <br>
-                     Dataset:
-                     <a href = "datasets/cleaned_new.csv">cleaned_new.csv</a> <br>
+                     Datasets:
+                     <a href = "datasets/cleaned.f17.csv">cleaned.f17.csv</a> (Original), 
+                     <a href = "datasets/cleaned_new.csv">cleaned_new.csv</a> (Processed), 
+                     <a href = "datasets/cleaned_reduced.csv">cleaned_reduced.csv</a> (Size Reduced)
+                     <br>
                </div>
             </div>
          </div>
@@ -71,7 +74,7 @@
                   In the "Groups" panel, choose which grouping to use to map color to the data.
                   In the "Legend" panel, see which colors are mapped to which sets, and choose which sets to highlight. </p>
 
-                  <p> The plot currently supports interaction only in the form of brushing. Click and drag on an axis
+                  <p> The plot itself currently supports interaction only in the form of brushing. Click and drag on an axis
                   to select only records that fall within that range on the axis. </p>
 
                   <p> Sample datasets are included in the "datasets" folder. </p>
@@ -83,13 +86,37 @@
    <div class="w3-row-padding">  
       <h2 class="w3-teal w3-bottombar"> Images </h2>
       <div class="w3-col s6">
-      <div class = "w3-card-4">
-         <img src = "docs/iris.png" alt = "Iris" class = "w3-image">
-         <div class="w3-container w3-center">
-            <p> Visualizing Edgar Iverson's Iris Dataset </p>
+         <div class = "w3-card-4 w3-margin">
+            <img src = "docs/iris.png" alt = "Iris" class = "w3-image">
+            <div class="w3-container w3-center">
+               <p> Visualizing Edgar Iverson's Iris Dataset </p>
+            </div>
          </div>
       </div>
-   </div>
-
+      <div class="w3-col s6">
+         <div class = "w3-card-4 w3-margin">
+            <img src = "docs/brush.png" alt = "Iris" class = "w3-image">
+            <div class="w3-container w3-center">
+               <p> Brushing the iris dataset </p>
+            </div>
+         </div>
+      </div>
+      <div class="w3-col s6">
+         <div class = "w3-card-4 w3-margin">
+            <img src = "docs/ms_phd.png" alt = "Iris" class = "w3-image">
+            <div class="w3-container w3-center">
+               <p> Reduced Graduate Admissions dataset, grouped by MS or PHD applicant </p>
+            </div>
+         </div>
+      </div>      
+      <div class="w3-col s6">
+         <div class = "w3-card-4 w3-margin">
+            <img src = "docs/grads_only.png" alt = "Iris" class = "w3-image">
+            <div class="w3-container w3-center">
+               <p> Students with previous graduate education </p>
+            </div>
+         </div>
+      </div>
+      
    </body>
 </html>

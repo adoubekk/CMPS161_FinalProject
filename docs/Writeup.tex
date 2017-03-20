@@ -13,21 +13,19 @@
 
 \begin{document}
 
-
-	
 \begin{titlepage}
 
 	\maketitle
 
 	\begin{abstract}
-		The unusually large applicant pool to the Computer Science graduate program at UCSC in 2017 introduced a problem of scale to the admissions process. By applying multivariate visualization techniques to applicants' admission data, I aim to identify correlations in the data that could be applicable to the selection process in the future. I employ a common information visualization technique known as the parallel coordinate plot. A brief overview of this technique is provided, as well as descriptions of several common methods to improve its readability and usefulness that are implemented in this project.
+		The unusually large applicant pool to the Computer Science graduate program at UCSC in 2017 introduced a problem of scale to the admissions process. By applying multivariate visualization techniques to applicants' admission data, I aim to identify correlations in the data that could be applicable to the selection process in the future, such as whether test scores correlated to interest/strength a given research area, or similarities between accepted applicants. I employ a common information visualization technique known as the parallel coordinate plot. A brief overview of this technique is provided, as well as descriptions of several common methods to improve its readability and usefulness that are implemented in this project.
 	\end{abstract}
 
 \end{titlepage}
 
 \section{Introduction}
 
-	\par In 2017, there were nearly 1100 applicants to the UC Santa Cruz Computer Science graduate program. Given the unusually large size of this applicant pool, making sense of any large-scale trends simply by looking at their records in a table becomes an intractable problem. In addition to the high volume of applicants, the students' records contain a large number of potentially significant variables to be analyzed. This includes quantitative data, such as test scores and GPA, and qualitative data, such as the applicants' research interests, countries of origin, and whether or not the student was admitted.  In this paper, I attempt to develop visualizations to identify correlations in this data that could be relevant to the selection process. 
+	\par In 2017, there were nearly 1100 applicants to the UC Santa Cruz Computer Science graduate program. Given the unusually large size of this applicant pool, making sense of any large-scale trends simply by looking at their records in a table becomes an intractable problem. In addition to the high volume of applicants, the students' records contain a large number of potentially significant variables to be analyzed. This includes quantitative data, such as test scores and GPA, and qualitative data, such as the applicants' research interests, countries of origin, and whether or not the student was admitted.  In this paper, I develop visualizations to identify correlations in this data that could be relevant to the selection process. In particular, I analyze the correlation between research interest and relative performance on the graduate entrance exams, 
 
 \section{Methods}
 
@@ -44,56 +42,9 @@
 	\par The parallel coordinate plot, in its most basic form, also has the advantage of simplicity: straight lines connecting parallel axes are not difficult to implement, especially given the powerful scaling and rendering functionality of the d3.js library\cite{d3} used in this project. The challenge is in scaling the visualization up to larger datasets. The iris dataset consists of only 150 records, while the graduate admissions data has almost 1100, so approximately seven times the number of lines will be drawn on the plot. Without some additional adjustments, the plot will be too visually cluttered to be of any use. One simple technique to improve readability is to map the color of the lines to their group membership, as color is mapped to species in the iris example. I will discuss additional techniques in the Implementation section.
 	
 \section{Implementation}
-	\subsection{Dataset: Description and Processing}
-		The dataset consists of 1097 records, each representing an applicant to one of the UCSC computer science graduate programs. The fields from the provided dataset are described as follows:
-		
-		\begin{tabular}{c|c}
-		 Field & Description \\ \hline
-		 ID & Applicant identification number \\
-		 Tags & Filters and Professors' interest in applicant\\
-		 Transcripts Rec'd & Number of transcripts received \\ 
-		 Transcripts Req'd & Number of transcripts required \\
-		 Letters Rec'd & Number of recommendation letters received\\
-		 Dept & Academic Department (all CMPS)\\
-		 Degree & Masters or PHD\\
-		 Research Interests & Applicant's list of research interests\\
-		 Schools Attended & Applicant's previous education\\
-		 UG GPA & Undergraduate GPA\\
-		 UG GPA SCALE & Scale for undergraduate GPA\\ 		 
-		 GRAD GPA & Graduate GPA\\
-		 GRAD GPA SCALE & Scale for graduate GPA\\
-		 GREV & GRE - Verbal Reasoning\\
-		 GREV\% & Percentage of total possible GREV score\\
-		 GREQ & GRE - Quantitative Reasoning\\
-		 GREQ\% & Percentage for GREQ\\
-		 GREA & GRE - Analytical Writing\\
-		 GREA\% & Percentage for GREA\\
-		 GRESubjName & GRE Subject Test Name \\ 
-		 GRESubjScore & Gre Subject Test Score\\
-		 GRESubj\% & Gre Subject Test Percentage\\
-		 TOEFL & Test Of English as a Foreign Language\\
-		 IELTS & International English Language Testing System \\
-		 Gender & Male, Female, Other, or Unreported\\
-		 Ethnicity & \\
-		 CA Res & California Resident: Yes, No, or Unreported\\
-		 For/Dom & Domestic, or Country of Origin\\
-		 Number of Reviews & \\ 
-		 Ratings & \\ 
-		 Avg. Rating & \\ 
-		 Admitted & Yes or No\\
-		\end{tabular} \\
-		
-		\par Since the applicants come from all around the world (in fact, the vast majority of applicants were foreign), one obstacle to drawing objective quantitative comparisons between groups of students was the fact that not all students have taken the same tests, and GPA is scaled differently in different countries. Normalizing the GPAs was relatively straightforward, since the dataset includes both the student's GPA and the GPA scale used, so the scores were simply normalized to 1, or in other words, the fraction of the appropriate total possible GPA. Additionally, a small number of the reported GRE scores were far higher the actual maximum score on the exam\cite{GRE}, so these were simply thrown out. Finally, there are two different English as a Foreign Language exams, the TOEFL\cite{TOEFL} and the IELTS\cite{IELTS}. These two were merged into a single EFL Index, again by normalizing to the maximum score on each exam. However, these two exams are score quite differently: TOEFL reports a score in the range 0-120, while IELTS assigns a "band" from 0-9 based on proficiency. A more representative comparison might be to fit each set of scores to a distribution, but there were relatively few IELTS scores, so this approach may also have introduced some bias as well. \\
-		
-		\par The fields I added to the dataset are defined as follows: \\
-		
-		\begin{tabular}{c|c}
-		Field & Description \\ \hline \\
-		UG GPA (Normalized) & $\frac {\text{UG GPA}}{\text{UG GPA SCALE}}$\\ \\
-		GRAD GPA (Normalized) &  $\frac{\text{GRAD GPA}}{\text{GRAD GPA SCALE}}$\\ \\
-		EFL (Normalized) & $\frac{\text{Score}}{\text{Max Score}}$, for TOEFL and IELTS\\		
-		\end{tabular}
-		
+	\subsection{Technical}
+	This project uses d3.js 4.7.3 to handle the rendering of the visualizations (modules: d3-axis, d3-scale, d3-selection, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record objects also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
+
 	\subsection{Developing Visualization}
 		\par In this section, I will discuss the strategies implemented in this project to improve readability of parallel coordinate plots of large datasets. While the primary objective here was analysis of the graduate admissions data, the techniques used here, and in fact the interface itself, could be used to visualize any multivariate dataset stored as a csv file. In general, however, csv is a relatively loose standard\cite{csv}, so any truly generic application is nearly impossible.
 		\subsubsection{Color Mapping}
@@ -130,33 +81,94 @@
 				\Return {brushed}
 
 			\end{algorithm}
+			
 		\subsubsection{Axis Selection}
 		The visualization interface allows the user to select what axes to be displayed on the plot. While most of the strategies discusses here focus on highlighting clusters or trends in the data, this was implemented as a way to reduce the scale of the problem. For example, variables that take on only a small range of discrete values are typically not suited to this type of visualization\cite{kosara}, so this tool can simply eliminate such variables from the view.
+		
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth/2]{possum_bad.png}
 			\includegraphics[width=\linewidth/2]{possum_good.png}
 			\caption{Left: Possum dataset\cite{datasets}, with discrete variables on left axes. Right: same dataset, with discrete variables eliminated using axis selection.}
 			\label{fig:Axis}
 		\end{figure}
-	\subsection{Technical}
-		This project uses d3.js 4.7.3 to handle the rendering of the visualizations (modules: d3-axis, d3-scale, d3-selection, d3-brush, and d3-shape), jQuery.js for DOM manipulation and user input, w3.css as a style framework, and Python scripts for dataset processing tasks. The data is read into Record objects, each of which contains two native JavaScript maps: one from keys to values for qualitative data (defined as "sets" or "groups" in the code) and one from keys to quantitative (defined as "data"). These record objects also define getter and setter functions, although this is mainly a matter of convenience as JavaScript does not provide a robust system of encapsulation.
+		
+	\subsection{Dataset}
+		The dataset consists of 1097 records, each representing an applicant to one of the UCSC computer science graduate programs. The fields from the provided dataset that were utilized to create the visualizations are described as follows:
+		
+		\begin{tabular}{c|c}
+			Field & Description \\ \hline
+			ID & Applicant identification number \\
+			Tags & Filters and Professors' interest in applicant\\
+			Degree & Masters or PHD\\
+			Research Interests & Applicant's list of research interests\\
+			UG GPA & Undergraduate GPA\\
+			UG GPA SCALE & Scale for undergraduate GPA\\ 		 
+			GRAD GPA & Graduate GPA\\
+			GRAD GPA SCALE & Scale for graduate GPA\\
+			GREV & GRE - Verbal Reasoning\\
+			GREQ & GRE - Quantitative Reasoning\\
+			GREA & GRE - Analytical Writing\\
+			TOEFL & Test Of English as a Foreign Language\\
+			IELTS & International English Language Testing System \\
+			For/Dom & Domestic, or Country of Origin\\
+			Admitted & Yes or No\\
+		\end{tabular} \\
+		
+		\par Since the applicants come from all around the world (in fact, the vast majority of applicants were foreign), one obstacle to drawing objective quantitative comparisons between groups of students was the fact that not all students have taken the same tests, and GPA is scaled differently in different countries. Normalizing the GPAs was relatively straightforward, since the dataset includes both the student's GPA and the GPA scale used, so the scores were simply normalized to 1, or in other words, the fraction of the appropriate total possible GPA. Additionally, a small number of the reported GRE scores were far higher the actual maximum score on the exam\cite{GRE}, so these were simply thrown out. Finally, there are two different English as a Foreign Language exams, the TOEFL\cite{TOEFL} and the IELTS\cite{IELTS}. These two were merged into a single EFL Index, again by normalizing to the maximum score on each exam. However, these two exams are score quite differently: TOEFL reports a score in the range 0-120, while IELTS assigns a "band" from 0-9 based on proficiency. A more representative comparison might be to fit each set of scores to a distribution, but there were relatively few IELTS scores, so this approach may also have introduced some bias as well.
+		
+		\par Additionally, once I began working with the dataset, I began to suspect that the trend of domestic students outperforming foreign students on the Verbal Reasoning and Analytical portions on the GRE may have been overshadowing any more subtle trends relating to their research interests. Therefore, I also included a normalized GRE score for each category, defined as the simple distance from each score to the mean score of applicants from that country (with negative meaning below average). To summarize, the fields I added to the dataset are defined as follows: \\
+		
+		\begin{tabular}{c|c}
+			Field & Description \\ \hline \\
+			UG GPA (Normalized) & $\frac {\text{UG GPA}}{\text{UG GPA SCALE}}$\\ \\
+			GRAD GPA (Normalized) &  $\frac{\text{GRAD GPA}}{\text{GRAD GPA SCALE}}$\\ \\
+			EFL (Normalized) & $\frac{\text{Score}}{\text{Max Score}}$, for TOEFL and IELTS\\	\\	
+			GREV (N) & Score $-$ Mean Score for Country of Origin \\ \\
+			GREQ (N) & Score $-$ Mean Score for Country of Origin \\ \\
+			GREA (N) & Score $-$ Mean Score for Country of Origin	\\
+		\end{tabular}
+		
 \section{Results}
-	In my original implementation, the lines that were not selected were simply grayed out. This made for a nice visual effect on smaller datasets, but on the graduate admissions dataset, the plot was simply too densely populated, and even the greyed out lines became a visual distraction and hindrance. For the graduate admissions data, this effect was disabled.
+	Once I began working with the graduate admissions dataset, it become clear that the set was simply too dense to be interpreted as a whole. In my original implementation, the lines that were not selected were simply grayed out. While this made for a nice visual effect on smaller datasets, on the graduate admissions dataset, the plot was simply too densely populated, and even the grayed out lines became a visual distraction and hindrance. For the graduate admissions data, this effect transparency of these lines was further increased, almost to the point of removal. In addition, all applicants that had been tagged with "Fail First Filter" were thrown out, which reduced the problem size by roughly half. All visualizations in this section were generated with this reduced dataset.
+	
+	\subsection {Admitted Students}
+		As might be expected, the students who gained entrance overwhelmingly scored above average on each of the GRE sections (average being 0 on each of the GRE (N) scales). While many of those who were not admitted also scored above average, the admitted group mostly excludes those who scored below average. This visualization also entirely omits those who met the "Fail First Filter" criteria, which often excluded students with very low GRE scores.
+	
+		\begin{figure}[h]
+			\includegraphics[width=\linewidth]{admitted.png}
+			\caption{Students offered admission to the UCSC graduate computer science program.}
+			\label{fig:Admitted}
+		\end{figure}
+		
+	\subsection {Research Interests}
+		I attempted to identify correlations between particular research interests and improved performance on specific areas of the GRE. For example, I hypothesized that interest in Natural Language Processing and Text Analytics might correspond to above average scores on the Verbal Reasoning and Analytical Writing portions of the exam, whereas interest in Data Analytics or Machine Learning might correspond to above average performance on the Quantitative Reasoning section. However, I discovered that there were no such trends to be found. As this example plot shows, students interest in Software Engineering, Data Analytics, Natural Language Processing, and Computer Games and Digital Media showed no significant difference in performance on any of the 3 exams, shown in Figure 5.
+		\begin{figure}[h!]
+			\includegraphics[width=\linewidth]{RI.png}
+			\caption{Grouping based on research interest. Blue: Data Analytics; Pink: Software Engineering; Purple: Natural Language Processing; Orange: Computer Games}
+			\label{fig:RI}
+			\includegraphics[width=\linewidth]{ms_phd.png}
+			\caption{Plot with grouping based on application to the MS or PHD programs. Blue: MS; Orange: PHD}
+			\label{fig:MS_PHD}
+		\end{figure}
+	\subsection {MS vs. PHD}
+		I expected to find no major difference between Master's and PHD applicants, but I was surprised to find that MS applicants, on average, performed better on the GREQ and GREA than their PHD counterparts, as Figure 6 shows.
 
-	\begin{figure}[h]
-		\includegraphics[width=\linewidth]{grads_only.png}
-		\caption{Graduate admissions dataset, brushed along the GRAD GPA axis (i.e. showing only those students who had previously attended graduate school). Color mapped to CA residency: Blue = Non-resident, Orange = Resident}
-		\label{fig:Grad}
-	\end{figure}
-	
-	Interestingly, in this Figure 4, it appears that students who had previously attended graduate school had relatively low GRE - Verbal Reasoning and Analytical Writing scores. Applying the appropriate color map to this plot clarified the situation, however. The vast majority of these students (blue) are non-California residents (in fact, most are foreign, but that mapping contains country of origin and is much more difficult to parse), and it is not a huge surprise that foreign students did not perform as well on an English language verbal proficiency test than did native speakers.
-	
-	
+		
+	\subsection{Previous Grad School Attendees}
+		This plot demonstrates an alternative use of the brushing feature. Brushing only the graduate GPA axis effectively selects those students who have previously attended graduate school. These students are also somewhat below average for GREQ and GREA, which while surprising taken on its own, actually follows logically from the results of the MS vs. PHD section, since the majority of those students with previous graduate education are most likely applying to the PHD program.
+		\begin{figure}[h]
+			\includegraphics[width=\linewidth]{grads_only.png}
+			\caption{Plot brushed to include only those who had previously attended a graduate school}
+			\label{fig:MS_PHD}
+		\end{figure}
+	\pagebreak
 \section{Related Work}
-	Parallel Sets, Radviz (time permitting)
+	\subsection{Parallel Sets}
+	
+	\subsection{RadViz}
 	
 \section{Conclusion}
-	There is a great deal of potential for improvement of this interface. In order to be a useful generic tool, many more of the visual attributes of the graph could be customizable, including the colors of the lines, whether unselected lines are grayed out or hidden, how and where the labels are placed, etc. In addition, there are several features I planned to implement but couldn't fit in before the deadline. First, I planned to allow switching from the quantitative "data" category to the qualitative "sets" category, as some discrete variables (such as store number, number of letters received, etc.) could be more useful as groupings than as plotted data.
+	There is a great deal of potential for improvement of this interface. In order to be a useful generic tool, many more of the visual attributes of the graph could be customizable, including the colors corresponding to particular groups, whether unselected lines are grayed out or hidden, how and where the labels are placed, etc. In addition, there are several features I planned to implement but couldn't fit in before the deadline. First, I planned to allow switching from the quantitative "data" category to the qualitative "sets" category, as some discrete variables (such as store number, number of letters received, etc.) could be more useful as groupings than as plotted data. Another common feature of this type of vis involves allowing the axes to be reordered, which can in some cases make correlations more apparent. Finally, one useful feature for dealing with large datasets would have been to be able to apply multiple filters based on grouping, so the problem size could be further reduced to correlations of groups within groups.
 
 \vfill
 
